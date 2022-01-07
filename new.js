@@ -1,4 +1,3 @@
-
 Function.prototype.myNew = function (...args) {
     // 箭头函数是没有prototype属性的
     if (this.prototype == void 0)
@@ -9,3 +8,4 @@ Function.prototype.myNew = function (...args) {
 }
 
 Array.myNew(3)
+
