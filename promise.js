@@ -12,7 +12,7 @@ class myPromise {
         cb(this.res)
     }
     // 这里要用，箭头函数否则上面将函数作为参数传递的时候，this会丢失
-    res = (data) => {
+    res = data => {
         if (this.status === PENDING) {
             this.data = data
             this.status = FULFILLED
@@ -35,6 +35,7 @@ class myPromise {
         })
     }
 }
+
 myPromise.resovle = function (value) {
     if (value instanceof myPromise) {
         return value
@@ -44,6 +45,7 @@ myPromise.resovle = function (value) {
         })
     }
 }
+
 myPromise.all = promises => new Promise((res, rej) => {
     const results = []
     let count = 0
@@ -106,6 +108,5 @@ myPromise.all([p1(), p2(), p3()]).then(data => {
 
 Promise.allSettled([p1(), p2(), p3()]).then(data => {
     console.log(1, data);
-
 })
 
